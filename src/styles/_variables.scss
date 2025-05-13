@@ -1,0 +1,90 @@
+$font-primary:
+  'Manrope',
+  'PingFang SC',
+  -apple-system,
+  BlinkMacSystemFont,
+  'Segoe UI',
+  Roboto,
+  Helvetica,
+  Arial,
+  sans-serif,
+  'Apple Color Emoji',
+  'Segoe UI Emoji',
+  'Segoe UI Symbol';
+$font-icon: 'Segoe Fluent Icons';
+
+// 浅色模式颜色
+$light-background: #ffffff;
+$light-text-primary: #000000;
+$light-text-secondary: #5f5f5f;
+$light-search-bg: #f1f3f4;
+$light-search-placeholder: #70757a;
+$light-search-border: transparent;
+
+// ✨ Updated for new shortcut style
+$light-shortcut-icon-bg: #ffffff; // Icon container background (light mode)
+$light-shortcut-item-bg: transparent; // Shortcut item wrapper background (light mode)
+$light-shortcut-item-hover-bg: #e8eaed; // Shortcut item wrapper hover background (light mode) - subtle gray
+
+$light-modal-backdrop: rgba(0, 0, 0, 0.1);
+$light-modal-bg: #ffffff;
+$light-context-menu-bg: #f8f9fad0;
+$light-context-menu-hover-bg: #00000010;
+$light-button-primary-bg: #0067c0;
+$light-button-primary-text: #ffffff;
+$light-button-secondary-bg: #f1f3f4;
+$light-button-secondary-text: #3c4043;
+$light-input-border: #dadce0;
+$light-greeting-avatar-bg: #202124;
+$light-greeting-avatar-text: #ffffff;
+
+// 深色模式颜色
+$dark-background: #202124;
+$dark-text-primary: #e8eaed;
+$dark-text-secondary: #9aa0a6;
+$dark-search-bg: #303134;
+$dark-search-placeholder: #9aa0a6;
+$dark-search-border: #5f6368;
+
+// ✨ Updated for new shortcut style
+$dark-shortcut-icon-bg: #303134; // Icon container background (dark mode) - was $dark-shortcut-bg
+$dark-shortcut-item-bg: transparent; // Shortcut item wrapper background (dark mode)
+$dark-shortcut-item-hover-bg: #3c4043; // Shortcut item wrapper hover background (dark mode)
+
+$dark-modal-backdrop: rgba(0, 0, 0, 0.4);
+$dark-modal-bg: #2d2e30;
+$dark-context-menu-bg: #2d2e30d0;
+$dark-context-menu-hover-bg: #ffffff10;
+$dark-button-primary-bg: #4cc2ff;
+$dark-button-primary-text: #202124;
+$dark-button-secondary-bg: #3c4043;
+$dark-button-secondary-text: #e8eaed;
+$dark-input-border: #5f6368;
+$dark-greeting-avatar-bg: #f1f3f4;
+$dark-greeting-avatar-text: #202124;
+
+// 通用
+$border-radius-small: 3px; // 4px * 0.9 = 3.6px -> 3px
+$border-radius-medium: 7px; // 8px * 0.9 = 7.2px -> 7px
+$border-radius-large: 13px; // 14px * 0.9 = 12.6px -> 13px
+$border-radius-round: 50%;
+
+$search-bar-height: 43px; // 48px * 0.9 = 43.2px -> 43px
+// ✨ New shortcut dimensions (can be adjusted)
+$shortcut-wrapper-width: 96px; // 80px * 0.9 = 72px
+$shortcut-icon-container-size: 62px; // 69px * 0.9 = 62.1px -> 62px
+$shortcut-favicon-size: 29px; // 32px * 0.9 = 28.8px -> 29px
+$shortcut-gap: 2px; // 29px * 0.9 = 26.1px -> 26px
+
+$modal-max-width: 480px; // Excluded from scaling
+
+// 组件特定样式
+// Shadows
+$shortcutItem-shadow: 0px 6px 20px rgba(38.9, 49.2, 73.56, 0.15);
+$modalDialog-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+$contextMenu-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+// Colors
+$shortcutItem-bg-hover: rgba(0, 0, 0, 0.067);
+$searchBox-suggestion-bg-hover: rgba(0, 0, 0, 0.06);
+$searchBox-suggestion-bg-active: rgba(0, 0, 0, 0.12);

@@ -1,0 +1,17 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'base';
+
+// 全局字体设置，确保 SF Pro 作为首选字体
+body,
+button,
+input,
+select,
+textarea {
+  font-family: $font-primary;
+}
+
+// 新增：用于 SF Symbols 图标的通用类
+.font-icon {
+  font-family: $font-icon;
+}
