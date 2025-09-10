@@ -1,0 +1,221 @@
+@use 'sass:color';
+@use 'variables' as *;
+@use 'mixins' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0; // 添加全局 margin reset
+  padding: 0; // 添加全局 padding reset
+}
+
+// 定义 CSS 变量
+:root {
+  --bg-color: #f9fafb; // 更新为设计稿背景色
+  --text-primary-color: #333333; // 更新为设计稿主要文字颜色
+  --text-secondary-color: #{$light-text-secondary};
+  --search-bg-color: white; // 设计稿搜索框背景
+  --search-placeholder-color: #888888; // 设计稿搜索框占位符颜色
+  --search-border-color: #d2d3d6; // 设计稿搜索框边框颜色
+
+  // ✨ Updated shortcut CSS variables
+  --shortcut-icon-bg-color: white; // 设计稿快捷方式图标背景
+  --shortcut-item-bg-color: transparent; // 快捷方式项本身透明
+  --shortcut-item-hover-bg-color: transparent; // hover 时也不改变背景
+  --shortcut-name-text-color: black; // 快捷方式名称颜色（浅色模式）
+
+  --modal-backdrop-color: #{$light-modal-backdrop};
+  --modal-bg-color: #{$light-modal-bg};
+  --context-menu-bg-color: #{$light-context-menu-bg};
+  --context-menu-hover-bg-color: #{$light-context-menu-hover-bg};
+  --button-primary-bg-color: #{$light-button-primary-bg};
+  --button-primary-text-color: #{$light-button-primary-text};
+  --button-secondary-bg-color: #{$light-button-secondary-bg};
+  --button-secondary-text-color: #{$light-button-secondary-text};
+  --input-border-color: #{$light-input-border};
+  --input-bg-color: #{$light-search-bg};
+  --accent-color: #{$light-button-primary-bg};
+  --accent-color-rgb:
+    #{color.channel($light-button-primary-bg, 'red')},
+    #{color.channel($light-button-primary-bg, 'green')},
+    #{color.channel($light-button-primary-bg, 'blue')};
+  --greeting-avatar-bg-color: #{$light-greeting-avatar-bg};
+  --greeting-avatar-text-color: #{$light-greeting-avatar-text};
+
+  // Font variables
+  --font-primary: #{$font-primary}; // Use SCSS variable
+  --font-icon: #{$font-icon}; // Use SCSS variable
+
+  // Border radius (可以保留或根据设计稿统一调整)
+  --border-radius-small: #{$border-radius-small};
+  --border-radius-medium: #{$border-radius-medium};
+  --border-radius-large: #{$border-radius-large};
+  --border-radius-round: #{$border-radius-round};
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #{$dark-background};
+    --text-primary-color: #{$dark-text-primary};
+    --text-secondary-color: #{$dark-text-secondary};
+    --search-bg-color: #{$dark-search-bg};
+    --search-placeholder-color: #{$dark-search-placeholder};
+    --search-border-color: #{$dark-search-border};
+
+    // ✨ Updated shortcut CSS variables for dark mode
+    --shortcut-icon-bg-color: #{$dark-shortcut-icon-bg};
+    --shortcut-item-bg-color: #{$dark-shortcut-item-bg};
+    --shortcut-item-hover-bg-color: #{$dark-shortcut-item-hover-bg};
+    --shortcut-name-text-color: #{$dark-text-primary}; // 快捷方式名称颜色（深色模式）
+
+    --modal-backdrop-color: #{$dark-modal-backdrop};
+    --modal-bg-color: #{$dark-modal-bg};
+    --context-menu-bg-color: #{$dark-context-menu-bg};
+    --context-menu-hover-bg-color: #{$dark-context-menu-hover-bg};
+    --button-primary-bg-color: #{$dark-button-primary-bg};
+    --button-primary-text-color: #{$dark-button-primary-text};
+    --button-secondary-bg-color: #{$dark-button-secondary-bg};
+    --button-secondary-text-color: #{$dark-button-secondary-text};
+    --input-border-color: #{$dark-input-border};
+    --input-bg-color: #{$dark-search-bg};
+    --accent-color: #{$dark-button-primary-bg};
+    --accent-color-rgb:
+      #{color.channel($dark-button-primary-bg, 'red')},
+      #{color.channel($dark-button-primary-bg, 'green')},
+      #{color.channel($dark-button-primary-bg, 'blue')};
+    --greeting-avatar-bg-color: #{$dark-greeting-avatar-bg};
+    --greeting-avatar-text-color: #{$dark-greeting-avatar-text};
+  }
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--bg-color);
+  color: var(--text-primary-color);
+  line-height: 1.5;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none; // 禁止文本选择
+}
+
+#app {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  justify-content: center;
+}
+
+.btn {
+  @include button-reset;
+  padding: 10px 20px;
+  border-radius: $border-radius-medium;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit; // 确保按钮继承字体
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.1s ease,
+    filter 0.1s ease; // 添加 transform 和 filter 过渡
+  cursor: default; // 更改按钮光标为箭头
+
+  &:hover {
+    transform: scale(1.03); // 轻微放大
+    filter: brightness(1.1); // 增加亮度
+  }
+
+  &:active {
+    transform: scale(0.98); // 轻微缩小
+    filter: brightness(0.9); // 降低亮度
+  }
+
+  &--primary {
+    background-color: var(--button-primary-bg-color);
+    color: var(--button-primary-text-color);
+    &:hover {
+      box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.1),
+        0 1px 2px rgba(0, 0, 0, 0.06);
+      // 继承通用 hover 效果，或在此处覆盖
+    }
+  }
+
+  &--secondary {
+    background-color: var(--button-secondary-bg-color);
+    color: var(--button-secondary-text-color);
+    &:hover {
+      background-color: var(--shortcut-item-hover-bg-color); // Or specific secondary hover
+      // 继承通用 hover 效果，或在此处覆盖
+    }
+  }
+
+  &--icon {
+    @include flex-center;
+    font-family: var(--font-icon);
+    font-size: 20px;
+    font-weight: normal; // 通常 Symbols 字体有自己的字重对应
+    padding: 8px;
+    background-color: transparent;
+    color: var(--text-secondary-color);
+    border-radius: $border-radius-round;
+    &:hover {
+      background-color: var(--shortcut-item-hover-bg-color); // Or specific icon hover
+      // 继承通用 hover 效果，或在此处覆盖
+    }
+  }
+}
+
+.input-field {
+  @include input-style;
+}
+
+.visually-hidden-input {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+// 确保 SF Pro 字体被正确加载，如果本地没有，需要通过 @font-face 引入
+// 例如:
+/*
+@font-face {
+  font-family: 'SF Pro';
+  src: url('/path/to/sf-pro-display-regular.woff2') format('woff2'),
+       url('/path/to/sf-pro-display-regular.woff') format('woff');
+  font-weight: 400; // Regular
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SF Pro';
+  src: url('/path/to/sf-pro-display-bold.woff2') format('woff2'),
+       url('/path/to/sf-pro-display-bold.woff') format('woff');
+  font-weight: 700; // Bold
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SF Pro'; // For SF Symbols (this might be incorrect, SF Symbols are special)
+  src: url('/path/to/sf-symbols-font.woff2') format('woff2'); // Example path
+  font-weight: normal;
+  font-style: normal;
+}
+*/
+
+// General link styling (if needed)
+a {
+  color: var(--text-primary-color);
+  text-decoration: none;
+}
