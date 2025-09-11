@@ -9,3 +9,5 @@
 使用 Manrope, Segoe Fluent Icons
 
 使用 Gemini 辅助编码
+
+参考 Chrome 新标签页改变颜色
